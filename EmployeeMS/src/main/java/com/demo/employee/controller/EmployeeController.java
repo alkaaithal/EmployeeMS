@@ -42,9 +42,12 @@ public class EmployeeController {
 	public ResponseEntity<?> salaryIncrease(@PathVariable("place") String place, @PathVariable("percentage") int percentage) {
 		LOGGER.info("CONTROLLER : Inside Increase Salary API ...");
 
-			List<Employee> e= employeeService.increaseSalary(place, percentage);
-			
-			return ResponseEntity.ok(e);
+			if(percentage <= 55) {
+				List<Employee> e= employeeService.increaseSalary(place, percentage);
+				
+				return ResponseEntity.ok(e);
+			}
+			else return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 		
 }
 	
