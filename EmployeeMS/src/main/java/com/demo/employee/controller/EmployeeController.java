@@ -54,7 +54,7 @@ public class EmployeeController {
 	@RequestMapping(value = "/getSalaryRange/{competency}", method = { RequestMethod.GET })
 	@ResponseBody
 	public String getSalaryRange(@PathVariable(value= "competency") String competency) {
-		LOGGER.info("Get EMPLOYEE by place ...", competency);
+		LOGGER.info("Get Salary range by competency ...", competency);
 	        return employeeService.getSalaryRange(competency);
 		
 }	
